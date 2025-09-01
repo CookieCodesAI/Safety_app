@@ -1,2 +1,3 @@
 data/CREMA-D/AudioWAV/
 *.wav
+/venv
