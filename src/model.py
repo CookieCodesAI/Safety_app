@@ -30,6 +30,7 @@ def make_model(X_data, y_data):
     
     model.fit(training, epochs = 20, validation_data = testing)
     os.makedirs("saved_models",exist_ok=True)
-    model.save("saved_models/emotion_model_ver_one")
+    model.save("saved_models/emotion_model_ver_one.h5")
+    return model, X_train, y_train, X_test, y_test, testing
 
 

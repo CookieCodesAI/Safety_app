@@ -33,7 +33,8 @@ def structure_data():
         y, sr = librosa.load(file, sr = 16000)
         S = librosa.feature.melspectrogram(y=y, sr=sr)
         dbs = librosa.power_to_db(S)
-        dbs = (dbs - dbs.min()) / (dbs.max() - dbs.min())
+        dbs = dbs.astype(np.float32)
+        dbs = (dbs - np.min(dbs)) / (np.max(dbs) - np.min(dbs)+ 1e-6)
         max_len = 180
         width = dbs.shape[1]
         if width < max_len:
